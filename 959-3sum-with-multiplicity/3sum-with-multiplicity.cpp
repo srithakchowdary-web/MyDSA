@@ -23,7 +23,7 @@ public:
                         while(j+fj < k  && arr[j+fj]==arr[j]) ++fj;
                         int fk = 1;
                         while(k-fk > j && arr[k-fk]==arr[k])  ++fk;
-                        count = (count + 1LL * fj * fk) % MOD;
+                        count = (count + 1LL*fj * fk)   % MOD;
                         j += fj;
                         k -= fk ; 
                     }
