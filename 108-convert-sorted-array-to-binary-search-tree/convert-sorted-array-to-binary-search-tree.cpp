@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    TreeNode* insert(vector<int> nums, int lt, int rt){
+    TreeNode* insert(vector<int>& nums, int lt, int rt){
         if(lt > rt) {
             return NULL;
         }
