@@ -6,8 +6,8 @@ public:
         curr.push_back(src);
         if(src==dest) {
             ans.push_back(curr);
-            curr.pop_back();
-            return;
+            //curr.pop_back();
+            //return;
         }
         for(int x : graph[src]){
             backtrack(graph,x,dest);
