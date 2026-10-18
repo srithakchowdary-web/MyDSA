@@ -1,20 +1,19 @@
 class Solution {
 public:
-    int solve(vector<int>& dp,int sum){
-        if(sum == 0)  return 0;
-        if(dp[sum] != INT_MAX) return dp[sum];
-        int m = INT_MAX;
-        for(int i=1 ; i*i <= sum; ++i){
-            m = min(m,1+ solve(dp,sum-i*i));
+    int solve(vector<int>& dp, int m, int val){
+        if(val == 0) return 0;
+        if(dp[val] != -1) return dp[val];
+        int v = INT_MAX;
+        for(int i=1;i<=m && i*i <= val ;++i){
+            v = min(v, 1+solve(dp,m,val-i*i));
         }
-        return dp[sum] = m;
-        // it is similar to my approach only taking m = sprt(n) coz we know we need to check only the those m values, but instead of adding to make it n we are subtracting to make it 0
+        return dp[val]=v;
+
     }
     int numSquares(int n) {
-        //similar to coin change
-        //int m = sqrt(n); 
-        vector<int> dp(n+1,INT_MAX);
-        
-        return solve(dp,n);
+        int m = sqrt(n);
+        vector<int> dp(n+1,-1);
+        dp[0]=0;
+        return solve(dp,m,n);
     }
 };
